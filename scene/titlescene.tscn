@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnbs56f4asqxu"]
+
+[ext_resource type="PackedScene" uid="uid://b1pr0mkdoi0c5" path="res://scene/titlebgscene.tscn" id="1_gbyvx"]
+[ext_resource type="Script" path="res://script/titlescene.gd" id="1_sslo8"]
+
+[node name="titlescene" type="CanvasLayer"]
+script = ExtResource("1_sslo8")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.98183, -9.144e-10, -0.189764, 0.0139244, 0.997304, -0.0720442, 0.189252, -0.0733775, -0.979183, -44.5249, 3.71441, -133.252)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "ATOMVERSE"
+
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/Label"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="play" type="Button" parent="Control/MarginContainer/VBoxContainer/Label/Control"]
+layout_mode = 2
+offset_top = 141.0
+offset_right = 88.0
+offset_bottom = 204.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="credit" type="Button" parent="Control/MarginContainer/VBoxContainer/Label/Control"]
+layout_mode = 2
+offset_top = 208.0
+offset_right = 125.0
+offset_bottom = 271.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Credit"
+
+[node name="quit" type="Button" parent="Control/MarginContainer/VBoxContainer/Label/Control"]
+layout_mode = 2
+offset_top = 275.0
+offset_right = 91.0
+offset_bottom = 338.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="background" type="Node3D" parent="."]
+transform = Transform3D(-0.998428, 0, -0.056048, 0, 1, 0, 0.056048, 0, -0.998428, 0, 0, 0)
+
+[node name="titlebgscene" parent="background" instance=ExtResource("1_gbyvx")]
+transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 0, 0, 0)
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Label/Control/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Label/Control/credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Label/Control/quit" to="." method="_on_quit_pressed"]
+
+[editable path="background/titlebgscene"]
+[editable path="background/titlebgscene/collegemodel"]

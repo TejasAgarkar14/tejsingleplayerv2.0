@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://buketsfws8afw"
+path="res://.godot/imported/Tejas.obj-f1894a0eac1788fe39870301d795722b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tejas.obj-f1894a0eac1788fe39870301d795722b.mesh"]
+
+source_file="res://model/00_out_tejas/01_OBJ/Tejas.obj"
+dest_files=["res://.godot/imported/Tejas.obj-f1894a0eac1788fe39870301d795722b.mesh", "res://.godot/imported/Tejas.obj-f1894a0eac1788fe39870301d795722b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

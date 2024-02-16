@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3wroa1q8p7ie"]
+
+[ext_resource type="PackedScene" uid="uid://nb0k1xb6wudt" path="res://model/00_out_tejas/00_tejas_.glb" id="1_6iq4j"]
+
+[node name="collegemodel" instance=ExtResource("1_6iq4j")]

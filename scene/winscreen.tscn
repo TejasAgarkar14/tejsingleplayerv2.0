@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://jpllfrbkckr3"]
+
+[ext_resource type="Shader" path="res://addons/Basic FPS Player/Example Scene/crt.gdshader" id="1_j1wlp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7quv2"]
+shader = ExtResource("1_j1wlp")
+shader_parameter/crt_brightness = 1.0
+shader_parameter/crt_ghost = 0.308
+shader_parameter/crt_grid = 0.4
+shader_parameter/crt_white_noise = 0.294
+shader_parameter/crt_curve = 0.05
+
+[node name="winscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.717647, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Congrats you won!!!"
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "Reach out to your nearest coordinator or assistence  for claming the reward."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "Thank You for Playing.
+You can support the dev on \"itch.io/TejasAgarkar\""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="crtshader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_7quv2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

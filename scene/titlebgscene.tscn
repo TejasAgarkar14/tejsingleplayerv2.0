@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1pr0mkdoi0c5"]
+
+[ext_resource type="Texture2D" uid="uid://b6qixqu3whtwv" path="res://model/coasttexture/coast_sand_rocks_02_diff_1k.jpg" id="1_j165g"]
+[ext_resource type="PackedScene" uid="uid://b3wroa1q8p7ie" path="res://scene/collegemodel.tscn" id="1_vu6aa"]
+[ext_resource type="Texture2D" uid="uid://bvo0xf7ts67d1" path="res://model/tejsky.jpg" id="1_yqf1h"]
+[ext_resource type="Texture2D" uid="uid://bbfx7xf01o6wk" path="res://model/coasttexture/coast_sand_rocks_02_arm_1k.jpg" id="2_m8eq7"]
+[ext_resource type="Texture2D" uid="uid://1alfpx52hmov" path="res://model/coasttexture/coast_sand_rocks_02_ao_1k.jpg" id="3_38e75"]
+[ext_resource type="Shader" path="res://addons/Basic FPS Player/Example Scene/crt.gdshader" id="3_xpq7o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uspqo"]
+albedo_texture = ExtResource("1_j165g")
+roughness_texture = ExtResource("3_38e75")
+normal_enabled = true
+normal_texture = ExtResource("2_m8eq7")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kp35j"]
+material = SubResource("StandardMaterial3D_uspqo")
+size = Vector3(500, 0.1, 800)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2g1xf"]
+panorama = ExtResource("1_yqf1h")
+
+[sub_resource type="Sky" id="Sky_0y3n1"]
+sky_material = SubResource("PanoramaSkyMaterial_2g1xf")
+
+[sub_resource type="Environment" id="Environment_em8qs"]
+background_mode = 2
+sky = SubResource("Sky_0y3n1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0rl"]
+shader = ExtResource("3_xpq7o")
+shader_parameter/crt_brightness = 1.0
+shader_parameter/crt_ghost = 3.0
+shader_parameter/crt_grid = 0.4
+shader_parameter/crt_white_noise = 0.121
+shader_parameter/crt_curve = 0.05
+
+[node name="titlebgscene" type="Node3D"]
+transform = Transform3D(-0.998428, 0, -0.056048, 0, 1, 0, 0.056048, 0, -0.998428, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_kp35j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_em8qs")
+
+[node name="collegemodel" parent="." instance=ExtResource("1_vu6aa")]
+transform = Transform3D(19.9841, 0, -0.798103, 0, 20, 0, 0.798103, 0, 19.9841, 24.8129, -1.46624, 120.285)
+
+[node name="group4_002" parent="collegemodel" index="4"]
+transform = Transform3D(0.01, -2.91038e-11, 0, 0, 0, -0.01, 2.91038e-11, 0.01, 0, -4.90199, 0, -19.0561)
+visible = false
+
+[node name="group4_003" parent="collegemodel" index="5"]
+transform = Transform3D(0.01, 2.03727e-10, 0, 0, 0, -0.01, -2.03727e-10, 0.01, 0, -0.0550119, 0, 3.40354)
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="crtshader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_8q0rl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.4638, 0, -5.19057)
+visible = false
+
+[editable path="collegemodel"]

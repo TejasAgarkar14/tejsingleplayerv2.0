@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mdqqlb5wbfwu"]
+
+[ext_resource type="PackedScene" uid="uid://c0s8rjt4kf8rt" path="res://model/Classroom.glb" id="1_6jxdw"]
+
+[node name="Classroommodel" instance=ExtResource("1_6jxdw")]
+
+[node name="Plane_002" parent="." index="5"]
+visible = false

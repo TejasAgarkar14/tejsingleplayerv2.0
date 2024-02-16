@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn2to0yxmixkv"]
+
+[ext_resource type="PackedScene" uid="uid://5rs03ofh1vno" path="res://model/scene.gltf" id="1_d8nx2"]
+
+[node name="backroommodel" instance=ExtResource("1_d8nx2")]
